@@ -3,6 +3,7 @@ const input = document.getElementById("inputControl");
 const strengthBar = document.getElementById("strengthBar");
 const warning = document.getElementById("warning");
 
+
 inputButton.addEventListener("click", function () {
   const pwd = input.value.trim();
 
@@ -53,6 +54,7 @@ function getScore(pwd) {
   updateRule("rule3", hasNumber);
   updateRule("rule4",hasLength);
   updateRule("rule5",subString);
+  updateRule("rule6",hasChar);
   
 
   if (hasUpper) score++;
