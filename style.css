@@ -19,3 +19,14 @@
   display: block;
   opacity: 1;
 }
+
+
+
+.container1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertical centering */
+  align-items: center;     /* Horizontal centering */
+  height: 100vh;
+  background: #f0f0f0;
+}

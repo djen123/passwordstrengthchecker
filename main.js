@@ -4,7 +4,7 @@ const strengthBar = document.getElementById("strengthBar");
 const warning = document.getElementById("warning");
 
 
-inputButton.addEventListener("click", function () {
+inputButton.addEventListener("click",function() {
   const pwd = input.value.trim();
 
   if (!pwd) {
@@ -19,10 +19,8 @@ inputButton.addEventListener("click", function () {
   input.value = "";
 });
 
+//function getScore to calculate score
 function getScore(pwd) {
-
-
-
   let score = 0;
   let hasUpper = false;
   let hasLower = false;
@@ -30,20 +28,12 @@ function getScore(pwd) {
   let hasLength = false;
   let subString = false;
   let hasChar = false;
-
-
-
-
   
     for (let char of pwd) {
     if (char >= "A" && char <= "Z") hasUpper = true;
     if (char >= "a" && char <= "z") hasLower = true;
     if (char >= "0" && char <= "9") hasNumber = true;
     if (!char.match(/[A-Za-z0-9]/)) hasChar = true;
-
-   
-   
-    
   }
   if(pwd.length >= 5) hasLength = true;
   if(!pwd.includes("password")&&(!pwd.includes("test")))subString = true;
@@ -67,6 +57,8 @@ function getScore(pwd) {
   return score;
 }
 
+
+//function updateRule to update dom element 
 function updateRule(id, condition) {
   const rule = document.getElementById(id);
   const badge = rule.querySelector("span");
@@ -86,23 +78,35 @@ function updateRule(id, condition) {
   }
 }
 
+//function to update strength according to
 function updateStrengthUI(score) {
   const strengthText = document.getElementById("signalStrength");
+  const strengthEmo = document.getElementById("emo");
+
+
+  
+  
+  
 
   if (score >= 5) {
     strengthBar.style.width = "100%";
     strengthBar.style.backgroundColor = "green";
     strengthText.innerText = "Strong ";
     strengthText.style.color = "green";
+    strengthText.innerHTML = "🟢 Strong Password 💪";
+    
+
   } else if (score >= 4) {
     strengthBar.style.width = "60%";
     strengthBar.style.backgroundColor = "orange";
     strengthText.innerText = "Medium ";
     strengthText.style.color = "orange"
+    strengthText.innerHTML = "🟠 Medium Strength 🙂";
   } else {
     strengthBar.style.width = "25%";
     strengthBar.style.backgroundColor = "red";
     strengthText.innerText = "Weak ";
     strengthText.style.color = "red"
+    strengthText.innerHTML = "🔴 Weak Password ⚠️";
   }
 }
