@@ -3,9 +3,13 @@ const input = document.getElementById("inputControl");
 const strengthBar = document.getElementById("strengthBar");
 const warning = document.getElementById("warning");
 
+// event listener to trigger main function
+inputButton.addEventListener("click",passwordStrengthChecker);
 
-inputButton.addEventListener("click",function() {
-  const pwd = input.value.trim();
+
+// takes input value and get score updating UI
+function passwordStrengthChecker (){
+   const pwd = input.value.trim();
 
   if (!pwd) {
     warning.style.display = "block";
@@ -15,10 +19,10 @@ inputButton.addEventListener("click",function() {
   }
 
   const score = getScore(pwd);
-  updateStrengthUI(score);
-  input.value = "";
-});
+  updateStrengthUI(score); // update according to returned value score;
+  input.value = ""; // empty input value
 
+}
 //function getScore to calculate score
 function getScore(pwd) {
   let score = 0;
@@ -58,10 +62,11 @@ function getScore(pwd) {
 }
 
 
-//function updateRule to update dom element 
+//function updateRule to check rule sections 
 function updateRule(id, condition) {
   const rule = document.getElementById(id);
   const badge = rule.querySelector("span");
+  // remove old classes and add new one
   rule.classList.remove("bg-success", "bg-danger", "text-white");
   badge.classList.remove("bg-success","bg-danger");
   badge.classList.add("bg-secondary");
@@ -81,13 +86,8 @@ function updateRule(id, condition) {
 //function to update strength according to
 function updateStrengthUI(score) {
   const strengthText = document.getElementById("signalStrength");
-  const strengthEmo = document.getElementById("emo");
-
 
   
-  
-  
-
   if (score >= 5) {
     strengthBar.style.width = "100%";
     strengthBar.style.backgroundColor = "green";
