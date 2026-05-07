@@ -2,9 +2,16 @@ const inputButton = document.getElementById("button-addon1");
 const input = document.getElementById("inputControl");
 const strengthBar = document.getElementById("strengthBar");
 const warning = document.getElementById("warning");
+const showHide = document.getElementById("showHide");
 
 // event listener to trigger main function
 inputButton.addEventListener("click",passwordStrengthChecker);
+//trigger show/hide function
+showHide.addEventListener("click",()=>{
+  const type = input.getAttribute("type") === "password"?"text":"password"
+  input.setAttribute("type",type);
+  showHide.innerText = type === "password"?"👁️":"🙈";
+})
 
 
 // takes input value and get score updating UI
@@ -74,8 +81,8 @@ function updateRule(id, condition) {
     
    if (condition) {
     rule.classList.add("bg-success", "text-white");
-    badge.classList.replace("bg-secondary", "bg-success");
-    badge.innerHTML= "<img src = 'https://static.vecteezy.com/system/resources/previews/026/611/860/original/green-check-mark-icon-simple-flat-style-tick-symbol-checkbox-right-checkmark-yes-correct-acceptance-ok-concept-illustration-isolated-on-white-background-eps-10-vector.jpg' alt = 'right' width='20px'/>"
+      badge.classList.replace("bg-secondary", "bg-success");
+     badge.innerHTML= "<img src = 'https://static.vecteezy.com/system/resources/previews/026/611/860/original/green-check-mark-icon-simple-flat-style-tick-symbol-checkbox-right-checkmark-yes-correct-acceptance-ok-concept-illustration-isolated-on-white-background-eps-10-vector.jpg' alt = 'right' width='20px'/>"
   } else {
     rule.classList.add("bg-danger", "text-white");
     badge.classList.replace("bg-secondary", "bg-danger");
@@ -91,22 +98,20 @@ function updateStrengthUI(score) {
   if (score >= 5) {
     strengthBar.style.width = "100%";
     strengthBar.style.backgroundColor = "green";
-    strengthText.innerText = "Strong ";
+      strengthText.innerText = "Strong ";
     strengthText.style.color = "green";
-    strengthText.innerHTML = "🟢 Strong Password 💪";
-    
-
-  } else if (score >= 4) {
+      strengthText.innerHTML = "🟢 Strong Password 💪";
+      } else if (score >= 4) {
     strengthBar.style.width = "60%";
-    strengthBar.style.backgroundColor = "orange";
+      strengthBar.style.backgroundColor = "orange";
     strengthText.innerText = "Medium ";
-    strengthText.style.color = "orange"
+      strengthText.style.color = "orange"
     strengthText.innerHTML = "🟠 Medium Strength 🙂";
   } else {
     strengthBar.style.width = "25%";
-    strengthBar.style.backgroundColor = "red";
+      strengthBar.style.backgroundColor = "red";
     strengthText.innerText = "Weak ";
     strengthText.style.color = "red"
-    strengthText.innerHTML = "🔴 Weak Password ⚠️";
+  strengthText.innerHTML = "🔴 Weak Password ⚠️";
   }
 }
