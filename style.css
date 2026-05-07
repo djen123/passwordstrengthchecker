@@ -43,6 +43,7 @@ gap:10px;
 
 
 
+
 .progress-bar {
   transition: width 0.4s ease, background-color 0.4s ease;
 }
@@ -65,16 +66,6 @@ gap:10px;
   opacity: 1;
 }
 
-
-
-.container1 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Vertical centering */
-  align-items: center;     /* Horizontal centering */
-  height: 100vh;
-  background: #f0f0f0;
-}
 @media (max-width: 700px) {
   .container {
     flex-direction: column;
