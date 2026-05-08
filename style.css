@@ -60,7 +60,12 @@ gap:10px;
   display: block;
   opacity: 1;
 }
-
+#warning{
+  display:none;
+}
+.progress{
+ height: 10px;
+}
 @media (max-width: 700px) {
   .container {
     flex-direction: column;
