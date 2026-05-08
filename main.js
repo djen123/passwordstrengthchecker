@@ -1,8 +1,10 @@
 const inputButton = document.getElementById("button-addon1");
 const input = document.getElementById("inputControl");
 const strengthBar = document.getElementById("strengthBar");
+ const strengthText = document.getElementById("signalStrength");
 const warning = document.getElementById("warning");
 const showHide = document.getElementById("showHide");
+const clear = document.getElementById("clear");
 
 // event listener to trigger main function
 inputButton.addEventListener("click",passwordStrengthChecker);
@@ -13,6 +15,24 @@ showHide.addEventListener("click",()=>{
   showHide.innerText = type === "password"?"👁️":"🙈";
 })
 
+//clear 
+clear.addEventListener("click",()=>{
+  input.value = "";
+  strengthBar.style.width = "0%";
+  strengthBar.className = "progress-bar";
+  strengthText.textContent = "";
+  warning.style.display = "none";
+   const rules = ["rule1", "rule2", "rule3", "rule4", "rule5", "rule6"];
+  rules.forEach(id => {
+    const li = document.getElementById(id);
+    const badge = li.querySelector("span");
+    li.classList.remove("bg-success", "bg-danger", "text-white");
+
+    badge.textContent = "Waiting";
+    badge.className = "badge bg-secondary";
+  });
+
+})
 
 // takes input value and get score updating UI
 function passwordStrengthChecker (){
@@ -92,7 +112,7 @@ function updateRule(id, condition) {
 
 //function to update strength according to
 function updateStrengthUI(score) {
-  const strengthText = document.getElementById("signalStrength");
+ 
 
   
   if (score >= 5) {

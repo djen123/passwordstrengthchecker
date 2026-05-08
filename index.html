@@ -11,16 +11,22 @@
 
 <body class="bg-light">
 
-<div class="container">
+<div class="container bg-light">
   <div class = "left-panel">
  
 
     <h3 class="text-center mb-3 fw-bold text-info">Password Strength Checker</h3>
-
+  <hr/>
     <div class="input-group mb-3" id = "passwordWrapper">
       <input type="password" id="inputControl" class="form-control" placeholder="Enter Password">
-      <button class = "btn btn-warning" id ="showHide">👁️</button>
+      
+        <label id="input">
+                  <input type="checkbox"  id ="showHide">Show Password
+                </label>
+      </div>
+    <div class = "check-btn mb-4 d-flex justify-content-center gap-5">
       <button class="btn btn-primary" id="button-addon1">Check</button>
+      <button class = "btn btn-info "id = "clear">clear</button>
     </div>
 
     <div id="warning" class="text-danger fw-semibold mb-2">
@@ -57,7 +63,7 @@
       </li>
 
         <li class="list-group-item d-flex justify-content-between" id="rule6">
-        Include special characters <span class="badge bg-secondary fw-bold">Waiting</span>
+        Include symbols <span class="badge bg-secondary fw-bold">Waiting</span>
       </li>
        
     </ul>
@@ -66,6 +72,7 @@
 </div>
 <div class = "right-panel text-info">
     <h3>Tips for a Strong Password</h3>
+    <hr/>
     <ul>
       <li>Use uppercase + lowercase</li>
       <li>Add numbers</li>
