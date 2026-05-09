@@ -12,7 +12,7 @@ inputButton.addEventListener("click",passwordStrengthChecker);
 showHide.addEventListener("click",()=>{
   const type = input.getAttribute("type") === "password"?"text":"password"
   input.setAttribute("type",type);
-  showHide.innerText = type === "password"?"👁️":"🙈";
+ 
 })
 
 //clear 
