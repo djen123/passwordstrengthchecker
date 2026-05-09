@@ -110,7 +110,7 @@ function updateRule(id, condition) {
   }
 }
 
-//function to update strength according to
+//function to update strength according to score
 function updateStrengthUI(score) {
  
 
